@@ -63,10 +63,7 @@ class DeviceViewController: NSViewController {
             }, colorMode: .dynamic),
             DirectEffect(name: "Spaced", builder: { colors -> DirectCommand in
                 SpacedDirectCommand(color: colors.first ?? .red)
-            }, colorMode: .count(1)),
-            DirectEffect(name: "USA! USA! USA!", builder: { colors -> DirectCommand in
-                Patriotism🦅DirectCommand()
-            }, colorMode: .none)
+            }, colorMode: .count(1))
         ] + AuraEffect.effects.map { BuiltInEffect(mode: $0) }
 
         effectsPopUpButton.removeAllItems()

@@ -136,20 +136,3 @@ class RollingGradientDirectCommand: GradientDirectCommand {
         super.init(gradients: gradients + [wrap])
     }
 }
-
-struct Patriotism🦅DirectCommand: DirectCommand {
-    let colors = [CommandColor.red, CommandColor.white, CommandColor.blue].stretched(by: 2)
-
-    var isAnimated: Bool {
-        true
-    }
-
-    func rgbs(capacity: Int, step: Int) -> [CommandColor] {
-        let step = step / 10
-        let out = colors
-            .wrap(first: step % colors.count)
-            .repeated(capacity: capacity)
-
-        return Array(out)
-    }
-}
