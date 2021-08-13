@@ -26,16 +26,8 @@ class DeviceViewController: NSViewController {
     var runEffect: ((Command) -> Void)?
 
     let defaultPalette = [NSColor]([
-        .goodReddish,
-        .goodYellowish,
-        .bestPink,
+        .goodRed,
         .blue,
-        .green,
-        .brown,
-        .cyan,
-        .magenta,
-        .orange,
-        .yellow,
     ])
 
     private var currentEffect: Effect!
@@ -182,16 +174,8 @@ class DeviceViewController: NSViewController {
 }
 
 fileprivate extension NSColor {
-    static var bestPink: NSColor {
-        self.init(calibratedRed: 216 / 255, green: 4 / 255, blue: 155 / 255, alpha: 1)
-    }
-
-    static var goodReddish: NSColor {
-        self.init(calibratedRed: 249 / 255, green: 30 / 255, blue: 30 / 255, alpha: 1)
-    }
-
-    static var goodYellowish: NSColor {
-        self.init(calibratedRed: 254 / 255, green: 189 / 255, blue: 63 / 255, alpha: 1)
+    static var goodRed: NSColor {
+        self.init(calibratedRed: 255 / 255, green: 0 / 255, blue: 25 / 255, alpha: 1)
     }
 }
 
