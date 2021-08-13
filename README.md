@@ -21,3 +21,8 @@ For me, I have an ASUS PRIME Z490-A, and a be quiet! Pure Base 500DX. The RGBs s
 ## Why doesn't it do X?
 
 So far, this is just an afternoon of tinkering, so it's missing, well, a lot of features. But it's enough to get the shiny thing! ✨
+
+
+## Credits
+
+Credits go to [Joshua May](https://github.com/notjosh) for writing the Aureal software in the first place
