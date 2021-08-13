@@ -83,6 +83,7 @@ class DeviceViewController: NSViewController {
         currentColorsVisibleCount = currentEffect.colorMode.count
         updateColorsStackView()
         updateGradient()
+        handleEffect(sender: self)
     }
 
     @objc
