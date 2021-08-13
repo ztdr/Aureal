@@ -85,15 +85,6 @@ struct AuraUSBDeviceConfiguration {
     func addressableLEDCount(at index: UInt8) -> UInt8 {
         let offset = offsetForDevice(at: index)
 
-        // XXX: custom overrides need to be injected
-        if index == 0 {
-            return 14
-        }
-
-        if index == 1 {
-            return 1
-        }
-
         return data[offset + 0x0]
     }
 
