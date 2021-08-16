@@ -19,11 +19,13 @@ class DeviceViewController: NSViewController {
     @IBOutlet private var colorWellsStackView: NSStackView!
     @IBOutlet private var gradientView: GradientView!
     @IBOutlet private var gradientControlsStackView: NSStackView!
-
+    @IBOutlet private var speedPopUpButton: NSPopUpButton!
+    @IBOutlet private var speedLabel: NSTextField!
+    
     private var cancellableSet: Set<AnyCancellable> = []
 
     var viewModel: DeviceViewModel!
-    var runEffect: ((Command) -> Void)?
+    var selectedDevice: AuraUSBDevice?
 
     let defaultPalette = [NSColor]([
         .goodRed,
@@ -103,7 +105,11 @@ class DeviceViewController: NSViewController {
         update()
         updateColorsStackView()
     }
-
+    
+    @IBAction func handleSpeed(sender: Any) {
+        update()
+    }
+    
     @IBAction func handleAddColor(sender: Any) {
         currentColorsVisibleCount += 1
         updateColorsStackView()
@@ -117,6 +123,21 @@ class DeviceViewController: NSViewController {
 
         updateColorsStackView()
     }
+    
+    private func run(effect: Command, speed: Int) {
+        // TODO: should this come from an arg?
+        guard let sd = selectedDevice else {
+            return
+        }
+
+        try? DeviceManager.shared
+            .effectRunner
+            .run(
+                command: effect,
+                on: sd,
+                speed: speed
+            )
+    }
 
     private func update() {
         let commandColors = currentColors
@@ -125,8 +146,21 @@ class DeviceViewController: NSViewController {
         let command: Command
 
         command = currentEffect.command(for: Array(commandColors))
+        
+        speedPopUpButton!.isHidden = !command.isAnimated
+        speedLabel!.isHidden  = !command.isAnimated
+        
+        let speed: Int
+        switch (speedPopUpButton!.selectedItem!.title) {
+        case "Fast":
+            speed = 7
+        case "Medium":
+            speed = 5
+        default:
+            speed = 1
+        }
 
-        runEffect?(command)
+        run(effect: command, speed: speed)
     }
 
     private func updateGradient() {

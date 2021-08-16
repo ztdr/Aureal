@@ -789,7 +789,7 @@
                                 </constraints>
                             </customView>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rlb-3p-wmJ">
-                                <rect key="frame" x="0.0" y="96" width="338" height="44"/>
+                                <rect key="frame" x="0.0" y="50" width="338" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7ti-iI-KEy"/>
                                 </constraints>
@@ -839,8 +839,9 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8GE-GS-gOO">
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8GE-GS-gOO">
                                 <rect key="frame" x="85" y="136" width="257" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="uuH-5D-2XF" id="sz8-7T-Abo">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -856,6 +857,33 @@
                                     <action selector="handleEffectWithSender:" target="nPQ-ja-zmd" id="dni-yI-rVZ"/>
                                 </connections>
                             </popUpButton>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dan-VA-Gf2">
+                                <rect key="frame" x="-2" y="118" width="47" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Speed:" id="3PD-mb-vrJ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HC3-rm-gek">
+                                <rect key="frame" x="85" y="112" width="257" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="Medium" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="xtn-w9-BMu" id="wgb-Kb-SOl">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="PkP-Ai-z5N">
+                                        <items>
+                                            <menuItem title="Slow" id="X8g-4q-GtC"/>
+                                            <menuItem title="Medium" state="on" id="xtn-w9-BMu"/>
+                                            <menuItem title="Fast" id="LBW-3T-3ez"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="handleSpeedWithSender:" target="nPQ-ja-zmd" id="oy7-I8-ofU"/>
+                                </connections>
+                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstItem="KyH-Uw-LED" firstAttribute="top" secondItem="Rlb-3p-wmJ" secondAttribute="bottom" constant="8" id="1El-Bv-VPY"/>
@@ -863,7 +891,6 @@
                             <constraint firstItem="BFs-lm-RfE" firstAttribute="top" secondItem="Nd3-YR-M1S" secondAttribute="top" id="2f0-sf-neM"/>
                             <constraint firstItem="BFs-lm-RfE" firstAttribute="leading" secondItem="Nd3-YR-M1S" secondAttribute="leading" id="Diw-2J-od3"/>
                             <constraint firstAttribute="bottom" secondItem="ehq-om-1rQ" secondAttribute="bottom" id="Fsp-Th-qhv"/>
-                            <constraint firstAttribute="trailing" secondItem="8GE-GS-gOO" secondAttribute="trailing" id="GKp-0d-zUC"/>
                             <constraint firstAttribute="trailing" secondItem="Rlb-3p-wmJ" secondAttribute="trailing" id="H5B-DN-ZR6"/>
                             <constraint firstAttribute="trailing" secondItem="ehq-om-1rQ" secondAttribute="trailing" id="K9y-a7-4jT"/>
                             <constraint firstItem="7b9-y3-9RL" firstAttribute="leading" secondItem="BFs-lm-RfE" secondAttribute="trailing" constant="8" id="KfA-wC-Su9"/>
@@ -884,6 +911,8 @@
                         <outlet property="effectsPopUpButton" destination="8GE-GS-gOO" id="z52-xJ-kiU"/>
                         <outlet property="gradientControlsStackView" destination="ehq-om-1rQ" id="zaP-rB-aRD"/>
                         <outlet property="gradientView" destination="KyH-Uw-LED" id="vXg-Gi-HZL"/>
+                        <outlet property="speedLabel" destination="dan-VA-Gf2" id="LFE-MK-QV0"/>
+                        <outlet property="speedPopUpButton" destination="HC3-rm-gek" id="MoQ-oR-Qup"/>
                     </connections>
                 </viewController>
                 <customObject id="p6c-tb-361" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

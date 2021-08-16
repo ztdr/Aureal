@@ -109,26 +109,11 @@ class ViewController: NSViewController {
         }
 
         vc.viewModel = .init(device: device)
-        vc.runEffect = run(effect:)
+        vc.selectedDevice = viewModel.selectedDevice
 
         deviceContainer.addSubview(vc.view)
         vc.view.pinEdges()
 
         deviceViewController = vc
-    }
-
-    private func run(effect: Command) {
-        // TODO: should this come from an arg?
-        guard let selectedDevice = viewModel.selectedDevice else {
-            return
-        }
-
-        try? DeviceManager.shared
-            .effectRunner
-            .run(
-                command: effect,
-                on: selectedDevice
-            )
-
     }
 }

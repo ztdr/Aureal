@@ -10,6 +10,7 @@ class EffectRunner {
     }
 
     var step: Int = 0
+    var stepPerTick: Int = 1
     var isDirect = false
 
     var command: Command?
@@ -29,8 +30,9 @@ class EffectRunner {
         activity = nil
     }
 
-    func run(command: Command?, on device: AuraUSBDevice) throws {
+    func run(command: Command?, on device: AuraUSBDevice, speed: Int) throws {
         step = 0
+        stepPerTick = speed
 
         self.command = command
         self.device = device
@@ -134,7 +136,7 @@ class EffectRunner {
 
             isDirect = true
 
-            step += 1
+            step += stepPerTick
         }
     }
 }
