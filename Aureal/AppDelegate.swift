@@ -2,15 +2,18 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    var statusBar: StatusBarController?
+    
     static var shared: AppDelegate {
         NSApp.delegate as! AppDelegate
     }
 
     let deviceManager = DeviceManager.shared
-    var effectRunner: EffectRunner?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         deviceManager.start()
+        statusBar = StatusBarController.init()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

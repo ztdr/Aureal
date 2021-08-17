@@ -28,6 +28,7 @@
 		42FE50D924DCDF9F00E4B00A /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE50D824DCDF9F00E4B00A /* Effect.swift */; };
 		42FE50DC24DCE2A200E4B00A /* CommandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE50DB24DCE2A200E4B00A /* CommandColor.swift */; };
 		42FE50DE24DCE2CF00E4B00A /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE50DD24DCE2CF00E4B00A /* Int+Extensions.swift */; };
+		CAF309EA26CBA83000B9781B /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF309E926CBA83000B9781B /* StatusBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		42FE50D824DCDF9F00E4B00A /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		42FE50DB24DCE2A200E4B00A /* CommandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandColor.swift; sourceTree = "<group>"; };
 		42FE50DD24DCE2CF00E4B00A /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		CAF309E926CBA83000B9781B /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				42F4D42724D0D3340031C650 /* Main.storyboard */,
 				42F4D42A24D0D3340031C650 /* Info.plist */,
 				42F4D42B24D0D3340031C650 /* Aureal.entitlements */,
+				CAF309E926CBA83000B9781B /* StatusBarController.swift */,
 			);
 			path = Aureal;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAF309EA26CBA83000B9781B /* StatusBarController.swift in Sources */,
 				42F4D42424D0D3330031C650 /* ViewController.swift in Sources */,
 				427A570224D9985A00760111 /* DeviceManager.swift in Sources */,
 				42FE50D724DC903000E4B00A /* GradientView.swift in Sources */,
