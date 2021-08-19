@@ -18,7 +18,7 @@ class StatusBarController {
         
         if let statusBarButton = statusItem.button {
             statusBarButton.image = #imageLiteral(resourceName: "status")
-            statusBarButton.image?.size = NSSize(width: 20.0, height: 20.0)
+            statusBarButton.image?.size = NSSize(width: 18.0, height: 18.0)
             statusBarButton.action = #selector(toggleWindow(sender:))
             statusBarButton.target = self
         }

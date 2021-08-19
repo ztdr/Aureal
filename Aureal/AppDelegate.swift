@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         deviceManager.start()
+        NSApp.setActivationPolicy(NSApplication.ActivationPolicy.accessory)
         statusBar = StatusBarController.init()
     }
 
