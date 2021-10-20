@@ -74,7 +74,6 @@ class DeviceViewController: NSViewController {
         currentColorsVisibleCount = currentEffect.colorMode.count
         updateColorsStackView()
         updateGradient()
-        handleEffect(sender: self)
     }
 
     @objc
@@ -155,7 +154,7 @@ class DeviceViewController: NSViewController {
         case "Fast":
             speed = 7
         case "Medium":
-            speed = 5
+            speed = 4
         default:
             speed = 1
         }

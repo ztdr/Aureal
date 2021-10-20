@@ -29,7 +29,7 @@ class ViewController: NSViewController {
         ViewModel()
     }()
 
-    private var deviceViewController: NSViewController?
+    private var deviceViewController: DeviceViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,19 +78,6 @@ class ViewController: NSViewController {
         viewModel.selectedDevice = device
     }
 
-    func send(_ command: Command) {
-//        guard let controller = AppDelegate.shared.controller else {
-//            print("no controller?")
-//            return
-//        }
-//
-//        do {
-//            try controller.send(command: command)
-//        } catch {
-//            print(error)
-//        }
-    }
-
     private func hideDevice() {
         deviceViewController?.view.removeFromSuperview()
         deviceViewController = nil
@@ -115,5 +102,6 @@ class ViewController: NSViewController {
         vc.view.pinEdges()
 
         deviceViewController = vc
+        vc.handleEffect(sender: self)
     }
 }
