@@ -51,7 +51,13 @@ class DeviceManager {
     }
 
     private func onDeviceDisconnected(deviceID: String) {
+        print("device disconnected, \(deviceID)")
         devices.removeAll(where: { $0.hidDevice.id == deviceID })
+        // stop current effect if device it is running on has been disconnected
+        if (effectRunner.device?.hidDevice.id == deviceID) {
+            print("stopping current effect on disconnected device")
+            effectRunner.stop()
+        }
     }
 
     private func onDeviceData(device: HIDDevice, data: Data) {
@@ -87,6 +93,8 @@ class DeviceManager {
             device.connectionState = .connected
 
             print("connected!")
+            // in case of waking up from sleep try to resume last effect
+            try? effectRunner.resume(on: device)
         }
     }
 

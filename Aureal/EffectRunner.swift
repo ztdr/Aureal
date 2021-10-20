@@ -12,6 +12,7 @@ class EffectRunner {
     var step: Int = 0
     var stepPerTick: Int = 1
     var isDirect = false
+    var stopped = false
 
     var command: Command?
     var device: AuraUSBDevice?
@@ -22,17 +23,24 @@ class EffectRunner {
     private var timer: Timer?
 
     deinit {
+        stop()
+    }
+    
+    func stop() {
+        print("stopping current effect")
         timer?.invalidate()
         timer = nil
         if let activity = activity {
             ProcessInfo.processInfo.endActivity(activity)
         }
         activity = nil
+        stopped = true
     }
 
     func run(command: Command?, on device: AuraUSBDevice, speed: Int) throws {
         step = 0
         stepPerTick = speed
+        isDirect = false
 
         self.command = command
         self.device = device
@@ -49,7 +57,7 @@ class EffectRunner {
 
         if let command = command,
            command.isAnimated {
-            let interval: TimeInterval = 0.01
+            let interval: TimeInterval = 0.1
             let timer = Timer(timeInterval: interval, repeats: true) { [weak self] _ in
                 do {
                     try self?.tick()
@@ -70,6 +78,23 @@ class EffectRunner {
         }
 
         try tick()
+    }
+    
+    func resume(on device: AuraUSBDevice) throws {
+        print("trying to resume last effect")
+        if (stopped) {
+            print("scheduling to resume last effect")
+            stopped = false
+            let cmd = self.command
+            let speed = self.stepPerTick
+            let interval: TimeInterval = 1
+            let timer = Timer(timeInterval: interval, repeats: false) { [weak self] _ in
+                print("resuming last effect")
+                try? self?.run (command: cmd, on: device, speed: speed)
+            }
+            timer.tolerance = interval
+            RunLoop.main.add(timer, forMode: .common)
+        }
     }
 
     private func tick() throws {

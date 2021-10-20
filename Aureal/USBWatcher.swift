@@ -1,4 +1,5 @@
 import Foundation
+import Cocoa
 
 class USBWatcher {
     private let deviceMonitor = HIDDeviceMonitor(

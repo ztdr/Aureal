@@ -47,9 +47,7 @@ class ViewController: NSViewController {
                     self.devicesPopUpButton.addItem(withTitle: device.name)
                 }
 
-                if self.viewModel.selectedDevice == nil {
-                    self.viewModel.selectedDevice = devices.first
-                }
+                self.viewModel.selectedDevice = devices.first
             })
             .store(in: &cancellableSet)
 
