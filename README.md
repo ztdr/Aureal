@@ -1,5 +1,8 @@
 # Aureal
 
+
+[![GitHub release](https://img.shields.io/github/release/Aluveitie/Aureal?include_prereleases=&sort=semver&color=blue)](https://github.com/Aluveitie/Aureal/releases/) [![download-badge](https://img.shields.io/github/downloads/aluveitie/Aureal/total.svg?style=flat-square "Download status")](https://github.com/aluveitie/Aureal/releases/latest "Download status")
+
 A macOS client driver for ASUS Aura enabled motherboards in Hackintosh builds.
 
 ## What does it do?
