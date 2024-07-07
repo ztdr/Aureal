@@ -80,11 +80,24 @@ let AuraCommandLength = 65
 
 let AsusUSBVendorID = 0x0b05
 
+/*
+ https://stackoverflow.com/questions/22042661/mac-osx-get-usb-vendor-id-and-product-id
+ #!/bin/sh
+
+ system_profiler SPUSBDataType \
+     | awk '
+       /Product ID:/{p=$3}
+       /Vendor ID:/{v=$3}
+       /Manufacturer:/{sub(/.*: /,""); m=$0}
+       /Location ID:/{sub(/.*: /,""); printf("%s:%s %s (%s)\n", v, p, $0, m);}
+     '
+ */
 let AuraProductIDs = [
     0x18f3,
     0x1872,
     0x1867,
     0x1889,
+    0x19af,
     // potentially: 0x1939,
 ]
 
