@@ -28,8 +28,9 @@ class DeviceViewController: NSViewController {
     var selectedDevice: AuraUSBDevice?
 
     let defaultPalette = [NSColor]([
-        .goodRed,
-        .blue,
+        NSColor(red: 0 / 255, green: 255 / 255, blue: 0 / 255, alpha: 1),
+        NSColor(red: 0 / 255, green: 255 / 255, blue: 0 / 255, alpha: 1),
+//        NSColor(red: 255 / 255, green: 218 / 255, blue: 255 / 255, alpha: 1),
     ])
 
     private var currentEffect: Effect!
